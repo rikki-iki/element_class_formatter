@@ -11,7 +11,7 @@ use Drupal\Core\Template\Attribute;
  * Formatter for displaying links in an HTML list.
  *
  * @FieldFormatter(
- *   id="string_list",
+ *   id="string_list_class",
  *   label="List (with class)",
  *   field_types={
  *     "string",

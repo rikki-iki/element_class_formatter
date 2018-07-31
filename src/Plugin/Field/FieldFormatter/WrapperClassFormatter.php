@@ -12,8 +12,8 @@ use Drupal\Core\Link;
  * A field formatter for wrapping text with a class.
  *
  * @FieldFormatter(
- *   id = "wrapper_with_class",
- *   label = @Translation("Wrapper with class"),
+ *   id = "wrapper_class",
+ *   label = @Translation("Wrapper (with class)"),
  *   field_types = {
  *     "string",
  *     "string_long",
