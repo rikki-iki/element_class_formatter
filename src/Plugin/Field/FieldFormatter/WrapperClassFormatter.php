@@ -52,20 +52,20 @@ class WrapperClassFormatter extends FormatterBase {
       '#default_value' => $this->getSetting('class'),
     ];
 
-    $form['linked'] = [
+    $form['link'] = [
       '#title' => $this->t('Link to the Content'),
       '#type' => 'checkbox',
       '#description' => $this->t('Wrap the text with a link to the content.'),
-      '#default_value' => $this->getSetting('linked'),
+      '#default_value' => $this->getSetting('link'),
     ];
 
-    $form['linked_class'] = [
+    $form['link_class'] = [
       '#title' => $this->t('Link class'),
       '#type' => 'textfield',
-      '#default_value' => $this->getSetting('linked_class'),
+      '#default_value' => $this->getSetting('link_class'),
       '#states' => [
         'visible' => [
-          ':input[name$="[linked]"]' => ['checked' => TRUE],
+          ':input[name$="[link]"]' => ['checked' => TRUE],
         ],
       ],
     ];
@@ -79,8 +79,8 @@ class WrapperClassFormatter extends FormatterBase {
     return parent::defaultSettings() + [
       'tag' => 'h2',
       'class' => '',
-      'linked' => '0',
-      'linked_class' => '',
+      'link' => '0',
+      'link_class' => '',
     ];
   }
 
@@ -95,11 +95,11 @@ class WrapperClassFormatter extends FormatterBase {
     if ($class = $this->getSetting('class')) {
       $summary[] = $this->t('Class: @class', ['@class' => $class]);
     }
-    if ($linked = $this->getSetting('linked')) {
-      $summary[] = $this->t('Link: @linked', ['@linked' => $linked ? 'yes' : 'no']);
+    if ($linked = $this->getSetting('link')) {
+      $summary[] = $this->t('Link: @link', ['@link' => $linked ? 'yes' : 'no']);
 
-      if ($linked_class = $this->getSetting('linked_class')) {
-        $summary[] = $this->t('Link class: @linked_class', ['@linked_class' => $linked_class]);
+      if ($linked_class = $this->getSetting('link_class')) {
+        $summary[] = $this->t('Link class: @link_class', ['@link_class' => $linked_class]);
       }
     }
     return $summary;
@@ -119,9 +119,9 @@ class WrapperClassFormatter extends FormatterBase {
     $parent = $items->getParent()->getValue();
     foreach ($items as $delta => $item) {
       $text = $item->getValue()['value'];
-      if ($this->getSetting('linked') && $parent->urlInfo()) {
+      if ($this->getSetting('link') && $parent->urlInfo()) {
         $link_attributes = new Attribute();
-        $link_classes = $this->getSetting('linked_class');
+        $link_classes = $this->getSetting('link_class');
         if (!empty($link_classes)) {
           $link_attributes->addClass($link_classes);
         }
