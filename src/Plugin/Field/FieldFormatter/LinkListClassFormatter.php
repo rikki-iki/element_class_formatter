@@ -26,11 +26,11 @@ class LinkListClassFormatter extends LinkFormatter {
    * {@inheritdoc}
    */
   public static function defaultSettings() {
-    $defaut_settings = parent::defaultSettings() + [
-      'tag' => 'ul',
+    $default_settings = parent::defaultSettings() + [
+      'list_type' => 'ul',
     ];
 
-    return ElementClassTrait::linkClassDefaultSettings($defaut_settings);
+    return ElementClassTrait::linkClassDefaultSettings($default_settings);
   }
 
   /**
@@ -40,14 +40,14 @@ class LinkListClassFormatter extends LinkFormatter {
     $elements = parent::settingsForm($form, $form_state);
     $class = $this->getSetting('class');
 
-    $elements['tag'] = [
+    $elements['list_type'] = [
       '#title' => $this->t('List type'),
       '#type' => 'select',
       '#options' => [
         'ul' => 'Un-ordered list',
         'ol' => 'Ordered list',
       ],
-      '#default_value' => $this->getSetting('tag'),
+      '#default_value' => $this->getSetting('list_type'),
     ];
 
     return $this->linkClassSettingsForm($elements, $class);
@@ -59,7 +59,7 @@ class LinkListClassFormatter extends LinkFormatter {
   public function settingsSummary() {
     $summary = parent::settingsSummary();
     $class = $this->getSetting('class');
-    if ($tag = $this->getSetting('tag')) {
+    if ($tag = $this->getSetting('list_type')) {
       $summary[] = $this->t('List type: @tag', ['@tag' => $tag]);
     }
 
@@ -82,7 +82,7 @@ class LinkListClassFormatter extends LinkFormatter {
       [
         '#theme' => 'item_list',
         '#items' => $elements,
-        '#list_type' => $this->getSetting('tag'),
+        '#list_type' => $this->getSetting('list_type'),
         '#attributes' => $attributes->toArray(),
       ],
     ];

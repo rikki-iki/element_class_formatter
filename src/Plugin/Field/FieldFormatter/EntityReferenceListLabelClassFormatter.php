@@ -26,11 +26,11 @@ class EntityReferenceListLabelClassFormatter extends EntityReferenceLabelFormatt
    * {@inheritdoc}
    */
   public static function defaultSettings() {
-    $defaut_settings = parent::defaultSettings() + [
-        'tag' => 'ul',
-      ];
+    $default_settings = parent::defaultSettings() + [
+      'list_type' => 'ul',
+    ];
 
-    return ElementClassTrait::elementClassDefaultSettings($defaut_settings);
+    return ElementClassTrait::elementClassDefaultSettings($default_settings);
   }
 
   /**
@@ -40,14 +40,14 @@ class EntityReferenceListLabelClassFormatter extends EntityReferenceLabelFormatt
     $elements = parent::settingsForm($form, $form_state);
     $class = $this->getSetting('class');
 
-    $elements['tag'] = [
+    $elements['list_type'] = [
       '#title' => $this->t('List type'),
       '#type' => 'select',
       '#options' => [
         'ul' => 'Un-ordered list',
         'ol' => 'Ordered list',
       ],
-      '#default_value' => $this->getSetting('tag'),
+      '#default_value' => $this->getSetting('list_type'),
     ];
 
     return $this->elementClassSettingsForm($elements, $class);
@@ -59,7 +59,7 @@ class EntityReferenceListLabelClassFormatter extends EntityReferenceLabelFormatt
   public function settingsSummary() {
     $summary = parent::settingsSummary();
     $class = $this->getSetting('class');
-    if ($tag = $this->getSetting('tag')) {
+    if ($tag = $this->getSetting('list_type')) {
       $summary[] = $this->t('List type: @tag', ['@tag' => $tag]);
     }
 
@@ -81,7 +81,7 @@ class EntityReferenceListLabelClassFormatter extends EntityReferenceLabelFormatt
       [
         '#theme' => 'item_list',
         '#items' => $elements,
-        '#list_type' => $this->getSetting('tag'),
+        '#list_type' => $this->getSetting('list_type'),
         '#attributes' => $attributes->toArray(),
       ],
     ];
