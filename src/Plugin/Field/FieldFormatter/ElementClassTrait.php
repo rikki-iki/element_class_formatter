@@ -45,6 +45,7 @@ trait ElementClassTrait {
       '#type' => 'textfield',
       '#default_value' => $class,
       '#title' => $this->t('Element class'),
+      '#description' => 'A space separated set of classes.',
       '#maxlength' => 200,
     ];
 
