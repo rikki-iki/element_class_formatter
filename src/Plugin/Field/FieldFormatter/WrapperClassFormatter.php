@@ -136,7 +136,7 @@ class WrapperClassFormatter extends FormatterBase {
         '#value' => $text,
       ];
     }
-    return $output;
+    return $elements;
   }
 
 }
