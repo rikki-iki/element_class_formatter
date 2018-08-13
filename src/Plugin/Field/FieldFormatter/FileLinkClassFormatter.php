@@ -19,7 +19,7 @@ use Drupal\Core\Url;
  *   }
  * )
  */
-class FileClassFormatter extends FileFormatterBase {
+class FileLinkClassFormatter extends FileFormatterBase {
 
   use ElementClassTrait;
 

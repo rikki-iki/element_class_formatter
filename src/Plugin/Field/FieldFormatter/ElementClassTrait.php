@@ -65,7 +65,7 @@ trait ElementClassTrait {
    */
   public function elementClassSettingsSummary(array $summary, $class) {
     if ($class) {
-      $summary[] = $this->t('Class: @class', ['@class' => $class]);
+      $summary[] = $this->t('Element class: @class', ['@class' => $class]);
     }
 
     return $summary;

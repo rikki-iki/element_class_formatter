@@ -28,7 +28,7 @@ field.formatter.settings.entity_reference_list_label_class:
       type: string
       label: 'Tag for the list element'
 
-field.formatter.settings.file_class:
+field.formatter.settings.file_link_class:
   type: mapping
   label: 'File display with class format settings'
   mapping:
@@ -58,6 +58,9 @@ field.formatter.settings.image_class:
     class:
       type: string
       label: 'Class for the element'
+    link_class:
+      type: string
+      label: 'Class for the link'
 
 field.formatter.settings.responsive_image_class:
   type: mapping
@@ -122,7 +125,7 @@ field.formatter.settings.link_list_class:
       type: string
       label: 'Open link in new window'
 
-field.formatter.settings.email_mailto_class:
+field.formatter.settings.email_link_class:
   type: mapping
   label: 'Email link display with class format settings'
   mapping:

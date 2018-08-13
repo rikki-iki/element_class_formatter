@@ -31,7 +31,7 @@ class StringListClassFormatter extends FormatterBase {
       'list_type' => 'ul',
     ];
 
-    return ElementClassTrait::linkClassDefaultSettings($default_settings);
+    return ElementClassTrait::elementClassDefaultSettings($default_settings);
   }
 
   /**
@@ -51,7 +51,7 @@ class StringListClassFormatter extends FormatterBase {
       '#default_value' => $this->getSetting('list_type'),
     ];
 
-    return $this->linkClassSettingsForm($elements, $class);
+    return $this->elementClassSettingsForm($elements, $class);
   }
 
   /**
@@ -64,7 +64,7 @@ class StringListClassFormatter extends FormatterBase {
       $summary[] = $this->t('List type: @tag', ['@tag' => $tag]);
     }
 
-    return $this->linkClassSettingsSummary($summary, $class);
+    return $this->elementClassSettingsSummary($summary, $class);
   }
 
   /**
