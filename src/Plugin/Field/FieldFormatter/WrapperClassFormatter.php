@@ -15,6 +15,7 @@ use Drupal\Core\Link;
  *   id = "wrapper_class",
  *   label = @Translation("Wrapper (with class)"),
  *   field_types = {
+ *     "email",
  *     "string",
  *     "string_long",
  *     "text",
@@ -111,9 +112,9 @@ class WrapperClassFormatter extends FormatterBase {
   public function viewElements(FieldItemListInterface $items, $langcode = NULL) {
     $elements = [];
     $attributes = new Attribute();
-    $classes = $this->getSetting('class');
-    if (!empty($classes)) {
-      $attributes->addClass($classes);
+    $class = $this->getSetting('class');
+    if (!empty($class)) {
+      $attributes->addClass($class);
     }
 
     $parent = $items->getParent()->getValue();
@@ -121,9 +122,9 @@ class WrapperClassFormatter extends FormatterBase {
       $text = $item->getValue()['value'];
       if ($this->getSetting('link') && $parent->urlInfo()) {
         $link_attributes = new Attribute();
-        $link_classes = $this->getSetting('link_class');
-        if (!empty($link_classes)) {
-          $link_attributes->addClass($link_classes);
+        $link_class = $this->getSetting('link_class');
+        if (!empty($link_class)) {
+          $link_attributes->addClass($link_class);
         }
         $link = Link::fromTextAndUrl($text, $parent->urlInfo())->toRenderable();
         $link['#attributes'] = $link_attributes->toArray();

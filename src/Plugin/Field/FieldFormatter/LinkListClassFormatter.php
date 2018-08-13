@@ -26,11 +26,11 @@ class LinkListClassFormatter extends LinkFormatter {
    * {@inheritdoc}
    */
   public static function defaultSettings() {
-    $default_settings = parent::defaultSettings() + [
+    $defaut_settings = parent::defaultSettings() + [
       'list_type' => 'ul',
     ];
 
-    return ElementClassTrait::linkClassDefaultSettings($default_settings);
+    return ElementClassTrait::linkClassDefaultSettings($defaut_settings);
   }
 
   /**

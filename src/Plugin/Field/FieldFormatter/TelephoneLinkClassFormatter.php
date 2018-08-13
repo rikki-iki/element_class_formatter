@@ -25,7 +25,7 @@ class TelephoneLinkClassFormatter extends TelephoneLinkFormatter {
    * {@inheritdoc}
    */
   public static function defaultSettings() {
-    return ElementClassTrait::linkClassDefaultSettings(parent::defaultSettings());
+    return ElementClassTrait::elementClassDefaultSettings(parent::defaultSettings());
   }
 
   /**
@@ -35,7 +35,7 @@ class TelephoneLinkClassFormatter extends TelephoneLinkFormatter {
     $elements = parent::settingsForm($form, $form_state);
     $class = $this->getSetting('class');
 
-    return $this->linkClassSettingsForm($elements, $class);
+    return $this->elementClassSettingsForm($elements, $class);
   }
 
   /**
@@ -45,7 +45,7 @@ class TelephoneLinkClassFormatter extends TelephoneLinkFormatter {
     $summary = parent::settingsSummary();
     $class = $this->getSetting('class');
 
-    return $this->linkClassSettingsSummary($summary, $class);
+    return $this->elementClassSettingsSummary($summary, $class);
   }
 
   /**
@@ -55,7 +55,7 @@ class TelephoneLinkClassFormatter extends TelephoneLinkFormatter {
     $elements = parent::viewElements($items, $langcode);
     $class = $this->getSetting('class');
 
-    return $this->setLinkClass($elements, $class, $items);
+    return $this->setElementClass($elements, $class, $items);
   }
 
 }
