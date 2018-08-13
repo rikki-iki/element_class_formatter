@@ -9,24 +9,28 @@ use Drupal\entity_test\Entity\EntityTest;
  *
  * @group element_class_formatter
  */
-class MailToClassFormatterTest extends ElementClassFormatterTestBase {
+class WrapperClassFormatterTest extends ElementClassFormatterTestBase {
 
-  const TEST_CLASS = 'test-mailto-class';
+  const TEST_CLASS = 'test-wrapper-class';
 
   /**
    * {@inheritdoc}
    */
   public function testClassFormatter() {
-    $field_config = $this->createEntityField('email_mailto_class', 'email', ['class' => self::TEST_CLASS]);
+    $formatter_settings = [
+      'class' => self::TEST_CLASS,
+      'tag' => 'h2',
+    ];
+    $field_config = $this->createEntityField('wrapper_class', 'string', $formatter_settings);
 
     $entity = EntityTest::create([
-      $field_config->getName() => [['value' => 'test@example.com']],
+      $field_config->getName() => [['value' => 'I am a string']],
     ]);
     $entity->save();
 
     $this->drupalGet($entity->toUrl());
     $assert_session = $this->assertSession();
-    $assert_session->elementExists('css', 'a.' . self::TEST_CLASS);
+    $assert_session->elementExists('css', 'h2.' . self::TEST_CLASS);
   }
 
 }

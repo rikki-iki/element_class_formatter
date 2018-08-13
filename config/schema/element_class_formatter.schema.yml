@@ -58,9 +58,6 @@ field.formatter.settings.image_class:
     class:
       type: string
       label: 'Class for the element'
-    link_class:
-      type: string
-      label: 'Class for the link'
 
 field.formatter.settings.responsive_image_class:
   type: mapping
@@ -69,9 +66,9 @@ field.formatter.settings.responsive_image_class:
     image_link:
       type: string
       label: 'Link image to'
-    image_style:
+    responsive_image_style:
       type: string
-      label: 'Image style'
+      label: 'Responsive image style'
     class:
       type: string
       label: 'Class for the element'

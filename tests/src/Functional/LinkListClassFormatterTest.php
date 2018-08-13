@@ -19,9 +19,9 @@ class LinkListClassFormatterTest extends ElementClassFormatterTestBase {
   public function testClassFormatter() {
     $formatter_settings = [
       'class' => self::TEST_CLASS,
-      'tag' => 'ol',
+      'list_type' => 'ol',
     ];
-    $field_config = $this->createEntityField('link_class', 'link', $formatter_settings);
+    $field_config = $this->createEntityField('link_list_class', 'link', $formatter_settings);
 
     $entity = EntityTest::create([
       $field_config->getName() => [

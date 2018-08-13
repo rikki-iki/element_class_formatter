@@ -19,9 +19,10 @@ class EntityReferenceListLabelClassFormatterTest extends ElementClassFormatterTe
   public function testClassFormatter() {
     $formatter_settings = [
       'class' => self::TEST_CLASS,
-      'tag' => 'ol',
+      'link' => TRUE,
+      'list_type' => 'ol',
     ];
-    $field_config = $this->createEntityField('entity_reference_label_class', 'entity_reference', $formatter_settings);
+    $field_config = $this->createEntityField('entity_reference_list_label_class', 'entity_reference', $formatter_settings);
     $referenced_node = $this->drupalCreateNode(['type' => 'referenced_content']);
 
     $entity = EntityTest::create([

@@ -12,7 +12,7 @@ use Drupal\Core\Url;
  * Plugin implementation of the 'file link with class' formatter.
  *
  * @FieldFormatter(
- *   id = "file_class",
+ *   id = "file_link_class",
  *   label = @Translation("File link (with class)"),
  *   field_types = {
  *     "file"

@@ -9,18 +9,18 @@ use Drupal\entity_test\Entity\EntityTest;
  *
  * @group element_class_formatter
  */
-class TelephoneClassFormatterTest extends ElementClassFormatterTestBase {
+class EmailLinkClassFormatterTest extends ElementClassFormatterTestBase {
 
-  const TEST_CLASS = 'test-phone-class';
+  const TEST_CLASS = 'test-mailto-class';
 
   /**
    * {@inheritdoc}
    */
   public function testClassFormatter() {
-    $field_config = $this->createEntityField('telephone_link_class', 'telephone', ['class' => self::TEST_CLASS]);
+    $field_config = $this->createEntityField('email_link_class', 'email', ['class' => self::TEST_CLASS]);
 
     $entity = EntityTest::create([
-      $field_config->getName() => [['value' => '1800888888']],
+      $field_config->getName() => [['value' => 'test@example.com']],
     ]);
     $entity->save();
 

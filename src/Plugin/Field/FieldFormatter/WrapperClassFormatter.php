@@ -26,6 +26,8 @@ use Drupal\Core\Link;
  */
 class WrapperClassFormatter extends FormatterBase {
 
+  use ElementClassTrait;
+
   /**
    * {@inheritdoc}
    */

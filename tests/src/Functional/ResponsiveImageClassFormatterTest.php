@@ -4,14 +4,13 @@ namespace Drupal\Tests\element_class_formatter\Functional;
 
 use Drupal\entity_test\Entity\EntityTest;
 use Drupal\file\Entity\File;
-use Drupal\Tests\file\Functional\Formatter\FileMediaFormatterTestBase;
 
 /**
  * Functional tests for the responsive image link with class formatter.
  *
  * @group element_class_formatter
  */
-class ResponsiveImageClassFormatterTest extends FileMediaFormatterTestBase {
+class ResponsiveImageClassFormatterTest extends ElementClassFormatterTestBase {
 
   const TEST_CLASS = 'test-responsive-img-class';
 
@@ -19,9 +18,12 @@ class ResponsiveImageClassFormatterTest extends FileMediaFormatterTestBase {
    * {@inheritdoc}
    */
   public function testClassFormatter() {
-    $field_config = $this->createMediaField('responsive_image_class', 'png', ['class' => self::TEST_CLASS]);
+    $formatter_settings = [
+      'class' => self::TEST_CLASS,
+    ];
+    $field_config = $this->createEntityField('responsive_image_class', 'image', $formatter_settings);
 
-    $image = $this->getTestFiles('image')[0];
+    $image = current($this->getTestFiles('image'));
     $file = File::create([
       'uri' => $image->uri,
       'status' => 1,

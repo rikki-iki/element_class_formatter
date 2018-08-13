@@ -26,11 +26,11 @@ class LinkListClassFormatter extends LinkFormatter {
    * {@inheritdoc}
    */
   public static function defaultSettings() {
-    $defaut_settings = parent::defaultSettings() + [
+    $default_settings = parent::defaultSettings() + [
       'list_type' => 'ul',
     ];
 
-    return ElementClassTrait::linkClassDefaultSettings($defaut_settings);
+    return ElementClassTrait::elementClassDefaultSettings($default_settings);
   }
 
   /**
@@ -50,7 +50,7 @@ class LinkListClassFormatter extends LinkFormatter {
       '#default_value' => $this->getSetting('list_type'),
     ];
 
-    return $this->linkClassSettingsForm($elements, $class);
+    return $this->elementClassSettingsForm($elements, $class);
   }
 
   /**
@@ -63,7 +63,7 @@ class LinkListClassFormatter extends LinkFormatter {
       $summary[] = $this->t('List type: @tag', ['@tag' => $tag]);
     }
 
-    return $this->linkClassSettingsSummary($summary, $class);
+    return $this->elementClassSettingsSummary($summary, $class);
   }
 
   /**

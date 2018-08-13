@@ -17,7 +17,11 @@ class EntityReferenceLabelClassFormatterTest extends ElementClassFormatterTestBa
    * {@inheritdoc}
    */
   public function testClassFormatter() {
-    $field_config = $this->createEntityField('entity_reference_label_class', 'entity_reference', ['class' => self::TEST_CLASS]);
+    $formatter_settings = [
+      'class' => self::TEST_CLASS,
+      'tag' => 'div',
+    ];
+    $field_config = $this->createEntityField('entity_reference_label_class', 'entity_reference', $formatter_settings);
     $referenced_node = $this->drupalCreateNode(['type' => 'referenced_content']);
 
     $entity = EntityTest::create([

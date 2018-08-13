@@ -19,7 +19,7 @@ class StringListClassFormatterTest extends ElementClassFormatterTestBase {
   public function testClassFormatter() {
     $formatter_settings = [
       'class' => self::TEST_CLASS,
-      'tag' => 'ol',
+      'list_type' => 'ol',
     ];
     $field_config = $this->createEntityField('string_list_class', 'string', $formatter_settings);
 
